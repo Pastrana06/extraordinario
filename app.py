@@ -6,7 +6,7 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/productos')
-def agregarProductos():
+def buscarProductos():
     import mysql.connector
     mydb = mysql.connector.connect(
         host="46.28.42.226",
@@ -20,7 +20,7 @@ def agregarProductos():
     myresult = mycursor.fetchall()
     return make_response(jsonify(myresult))
 
-@app.post('/productos')
+@app.post('/producto')
 def agregarProducto():
     import mysql.connector
     mydb = mysql.connector.connect(
