@@ -5,8 +5,8 @@ from flask_cors import CORS, cross_origin
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/productos')
-def buscarProductos():
+@app.route('/videojuegos')
+def buscarVideojuegos():
     import mysql.connector
     mydb = mysql.connector.connect(
         host="46.28.42.226",
@@ -15,12 +15,12 @@ def buscarProductos():
         database="u760464709_24005238_bd"
     )
     mycursor = mydb.cursor()
-    mycursor.execute("SELECT * FROM productos")
+    mycursor.execute("SELECT * FROM videojuegos")
     myresult = mycursor.fetchall()
     return make_response(jsonify(myresult))
 
-@app.post('/producto')
-def agregarProducto():
+@app.post('/videojuego')
+def agregarVideojuego():
     import mysql.connector
     mydb = mysql.connector.connect(
         host="46.28.42.226",
