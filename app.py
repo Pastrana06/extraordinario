@@ -14,7 +14,6 @@ def buscarProductos():
         password="~BK>!+57Ts",
         database="u760464709_24005238_bd"
     )
-
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM productos")
     myresult = mycursor.fetchall()
@@ -29,7 +28,6 @@ def agregarProducto():
         password="~BK>!+57Ts",
         database="u760464709_24005238_bd"
     )
-
     mycursor = mydb.cursor()
     sql = "INSERT INTO productos (nombre, categoria, precio, existencias) VALUES (%s, %s, %s, %s)"
     val = (request.form['txtNombre'], request.form['cboCategoria'], request.form['txtPrecio'], request.form['txtExistencias'])
